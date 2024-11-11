@@ -20,4 +20,6 @@ public class Note : MonoBehaviour
     {
         noteImage.enabled = false;
     }
+
+
 }
