@@ -23,7 +23,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // 기본 판정: Space 입력 시
-            CheckJudgement(0); // 예시로 Space 입력 시 기본 판정
+            CheckJudgement(2); // 예시로 Space 입력 시 기본 판정
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckJudgement(1);
         }
     }
 
