@@ -3,8 +3,10 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public float noteSpeed = 400;
+    public Color color1 = Color.red;
+    public Color color2 = Color.blue;
 
-    UnityEngine.UI.Image noteImage;
+    private UnityEngine.UI.Image noteImage;
 
     void OnEnable()
     {
@@ -13,8 +15,8 @@ public class Note : MonoBehaviour
             noteImage = GetComponent<UnityEngine.UI.Image>();
         }
 
+        noteImage.color = Random.value > 0.5f ? color1 : color2;
         noteImage.enabled = true;
-
     }
 
     void Update()
@@ -27,5 +29,11 @@ public class Note : MonoBehaviour
         noteImage.enabled = false;
     }
 
-
+    public int GetNoteType()
+    {
+        // Red = 1, Blue = 2
+        if (noteImage.color == color1) return 1;
+        if (noteImage.color == color2) return 2;
+        return 0; // Default or no color match
+    }
 }

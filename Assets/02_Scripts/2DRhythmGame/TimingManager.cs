@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 
-
 public class TimingManager : MonoBehaviour
 {
     public List<GameObject> boxNoteList = new List<GameObject>();
@@ -39,7 +38,19 @@ public class TimingManager : MonoBehaviour
         }
     }
 
-    public void CheckTiming()
+    // GetCurrentNote 메서드 추가
+    public Note GetCurrentNote()
+    {
+        // boxNoteList에서 첫 번째 노트를 반환 (현재 타이밍에 맞는 노트로 가정)
+        if (boxNoteList.Count > 0)
+        {
+            return boxNoteList[0].GetComponent<Note>(); // 첫 번째 노트를 반환
+        }
+
+        return null; // 노트가 없으면 null 반환
+    }
+
+    public void CheckTiming(int triggerType)
     {
         // 노래가 끝났다면 타이밍 체크를 중지
         if (isSongEnded)
@@ -55,48 +66,57 @@ public class TimingManager : MonoBehaviour
             {
                 if (timingBoxes[x].x <= t_notePosX && t_notePosX <= timingBoxes[x].y)
                 {
-                    // 타이밍에 맞은 노트가 "Perfect"인지 확인
                     bool isPerfect = (x == 0); // Perfect 타이밍 (x == 0)
                     bool isGoodOrBad = (x == 2 || x == 3); // Good 또는 Bad 타이밍
+                    Note currentNote = boxNoteList[i].GetComponent<Note>();
 
-                    // 타이밍에 맞은 노트 처리
-                    boxNoteList[i].GetComponent<Note>().HideNote();
-
-                    // "Perfect"인 경우
-                    if (isPerfect)
+                    if (currentNote.GetNoteType() == triggerType)
                     {
-                        comboCount++;
-                        perfectCount++;
-                        resultText.text = "Perfect!";
-                        Debug.Log("Perfect! Combo: " + comboCount);
+                        // 해당 트리거와 맞는 노트 처리
+                        boxNoteList[i].GetComponent<Note>().HideNote();
+
+                        // "Perfect"인 경우
+                        if (isPerfect)
+                        {
+                            comboCount++;
+                            perfectCount++;
+                            resultText.text = "Perfect!";
+                            Debug.Log("Perfect! Combo: " + comboCount);
+                        }
+                        // "Good" 또는 "Bad"인 경우 콤보 리셋
+                        else if (isGoodOrBad)
+                        {
+                            comboCount = 0;  // 콤보 리셋
+                            resultText.text = (x == 2) ? "Good!" : "Bad!";
+                            Debug.Log("Good/Bad! Combo Reset");
+                        }
+
+                        // 이펙트 처리
+                        if (x < timingBoxes.Length - 1)
+                        {
+                            theEffect.NoteHitEffect();
+                        }
+
+                        // 콤보 텍스트 업데이트
+                        comboText.text = "Combo: " + comboCount;
+
+                        return;
                     }
-                    // "Good" 또는 "Bad"인 경우 콤보 리셋
-                    else if (isGoodOrBad)
-                    {
-                        comboCount = 0;  // 콤보 리셋
-                        resultText.text = (x == 2) ? "Good!" : "Bad!";
-                        Debug.Log("Good/Bad! Combo Reset");
-                    }
-
-                    // 이펙트 처리
-                    if (x < timingBoxes.Length - 1)
-                    {
-                        theEffect.NoteHitEffect();
-                    }
-
-                    // 타이밍 박스 내에서 노트 제거
-                    boxNoteList.RemoveAt(i);
-
-                    // 콤보 텍스트 업데이트
-                    comboText.text = "Combo: " + comboCount;
-
-                    return;
                 }
             }
         }
 
         // 타이밍에 맞지 않으면 콤보 초기화
         Debug.Log("Miss");
+        comboCount = 0;
+        resultText.text = "Miss!";
+        comboText.text = "Combo: " + comboCount;
+    }
+
+    public void MissNote()
+    {
+        // Miss 처리 (타이밍에 맞지 않는 노트)
+        Debug.Log("Missed!");
         comboCount = 0;
         resultText.text = "Miss!";
         comboText.text = "Combo: " + comboCount;

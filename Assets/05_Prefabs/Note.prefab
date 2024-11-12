@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteSpeed: 400
+  color1: {r: 1, g: 0, b: 0.753623, a: 1}
+  color2: {r: 0, g: 0.5432098, b: 1, a: 1}
 --- !u!61 &2315887629836891580
 BoxCollider2D:
   m_ObjectHideFlags: 0

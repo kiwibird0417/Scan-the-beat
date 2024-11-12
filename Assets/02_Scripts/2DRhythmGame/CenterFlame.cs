@@ -13,6 +13,7 @@ public class CenterFlame : MonoBehaviour
     private void Start()
     {
         myAudio = GetComponent<AudioSource>();
+        myAudio.loop = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +38,12 @@ public class CenterFlame : MonoBehaviour
 
             resultText.text = "Music Ended";
             Debug.Log("Music Ended!");
+
+            // 음악 볼륨을 0으로 설정하여 소리 없애기
+            myAudio.volume = 0;
+
+            // 스크립트를 비활성화하여 재생 중지 후 더 이상 실행되지 않도록 설정
+            enabled = false;
         }
     }
 }
