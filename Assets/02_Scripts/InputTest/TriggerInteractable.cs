@@ -5,7 +5,6 @@ public class TriggerInteractable : MonoBehaviour
 {
     public InputActionReference triggerL;
     public InputActionReference triggerR;
-    //public GameObject targetObject; // 삭제할 오브젝트를 인스펙터에서 설정
 
     private bool isDestroyed = false; // 이미 삭제되었는지 확인하는 플래그
 
@@ -30,7 +29,8 @@ public class TriggerInteractable : MonoBehaviour
         Event_Trigger_R();
     }
 
-    public void Display(){
+    public void Display()
+    {
         triggerL.action.Enable();
         triggerL.action.performed += OnTriggerL;
 
@@ -58,16 +58,16 @@ public class TriggerInteractable : MonoBehaviour
     {
         isDestroyed = true; // 객체가 삭제됨을 표시
         Destroy(this.gameObject); // targetObject 삭제
-            /*
-        if (targetObject != null)
-        {
-            isDestroyed = true; // 객체가 삭제됨을 표시
-            Destroy(GameObject); // targetObject 삭제
-        }
-        else
-        {
-            Debug.LogWarning("Target object is not assigned!");
-        }
-        */
+        /*
+    if (targetObject != null)
+    {
+        isDestroyed = true; // 객체가 삭제됨을 표시
+        Destroy(GameObject); // targetObject 삭제
+    }
+    else
+    {
+        Debug.LogWarning("Target object is not assigned!");
+    }
+    */
     }
 }
