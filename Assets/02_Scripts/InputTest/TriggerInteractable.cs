@@ -8,9 +8,6 @@ public class TriggerInteractable : MonoBehaviour
 
     private bool isDestroyed = false; // 이미 삭제되었는지 확인하는 플래그
 
-    void Start()
-    {
-    }
 
     public void OnDestroy()
     {
