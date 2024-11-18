@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01_Scenes/SampleScene_Original.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/01_Scenes/Title.unity
+    guid: 3cf0e4d7658c1e24e8064bfe2eaf5ed7
   - enabled: 1
-    path: Assets/01_Scenes/2DRhythmGame.unity
-    guid: ec1664cc205f0f341aea95dbeb466165
+    path: Assets/01_Scenes/Main.unity
+    guid: 93e00821d204abe42b82765ab2b8bee8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a5b793a299c50f74bbe353d05d1bb81a, type: 2}
