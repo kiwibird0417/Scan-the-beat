@@ -6237,6 +6237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 666371154}
+  resultText: {fileID: 0}
+  comboManager: {fileID: 0}
   buttonA: {fileID: 5343198895370624955, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &666371156
 MonoBehaviour:
@@ -15479,7 +15481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1761439801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16159,7 +16161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1890658253
 MonoBehaviour:
   m_ObjectHideFlags: 0
