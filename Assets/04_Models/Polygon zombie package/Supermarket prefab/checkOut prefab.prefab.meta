@@ -12,5 +12,6 @@ AssetOrigin:
   productId: 81953
   packageName: POLYGON - Zombie Pack
   packageVersion: 1.0.0
-  assetPath: Assets/Polygon zombie package/Supermarket prefab/checkOut prefab.prefab
+  assetPath: Assets/04_Models/Polygon zombie package/Supermarket prefab/checkOut
+    prefab.prefab
   uploadId: 659046
