@@ -4,6 +4,13 @@ using UnityEngine.UI; // 버튼을 사용하기 위해 필요
 
 public class SceneTransition : MonoBehaviour
 {
+    public GameObject tempGameObject;
+
+    public void Test()
+    {
+        tempGameObject.SetActive(true);
+    }
+
     // 이 함수는 버튼 클릭 시 호출됩니다.
     public void OnButtonClick()
     {
