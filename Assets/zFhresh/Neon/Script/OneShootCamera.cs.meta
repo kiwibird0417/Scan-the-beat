@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 546b9f8cc95eb43439b82d5aed277cfc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274493
+  packageName: Neon Display
+  packageVersion: 1.0
+  assetPath: Assets/zFhresh/Neon/Script/OneShootCamera.cs
+  uploadId: 664581

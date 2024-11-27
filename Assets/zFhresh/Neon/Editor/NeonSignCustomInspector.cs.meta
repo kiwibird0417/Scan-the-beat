@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9c1ac8758dcc3d54e9873b6841371ea0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 274493
+  packageName: Neon Display
+  packageVersion: 1.0
+  assetPath: Assets/zFhresh/Neon/Editor/NeonSignCustomInspector.cs
+  uploadId: 664581
