@@ -47,7 +47,7 @@ public class MusicManagerforBGM : MonoBehaviour
         {
             currentSceneName = newSceneName;
 
-            if (newSceneName == "Title")
+            if (newSceneName == "Main")
             {
                 // 메인 게임 씬에서는 음악 정지
                 savedMusicTime = audioSource.time; // 현재 재생 시간 저장
