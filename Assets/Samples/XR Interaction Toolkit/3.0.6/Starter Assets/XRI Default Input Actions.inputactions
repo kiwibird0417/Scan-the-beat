@@ -3493,6 +3493,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "PC",
+            "id": "0c8cbaa0-260f-4f2d-859b-b75e36382c48",
+            "actions": [
+                {
+                    "name": "SpaceBar_Temp",
+                    "type": "Button",
+                    "id": "13b4c5a8-6ca6-40da-8d58-3e14af98bc46",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5af09528-5abd-4339-8af4-2003d77bb8b7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpaceBar_Temp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

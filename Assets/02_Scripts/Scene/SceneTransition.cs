@@ -1,9 +1,12 @@
+using MaskTransitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; // 버튼을 사용하기 위해 필요
 
 public class SceneTransition : MonoBehaviour
 {
+
+    public float totalTransitionTime;
 
     // 이 함수는 버튼 클릭 시 호출됩니다.
     public void OnButtonClick()
@@ -18,6 +21,8 @@ public class SceneTransition : MonoBehaviour
     // 씬 전환 함수
     public void LoadNextScene(int nextSceneIndex)
     {
+        TransitionManager.Instance.LoadLevel("Main");
+        /*
         // 다음 씬을 로드
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -27,5 +32,23 @@ public class SceneTransition : MonoBehaviour
         {
             Debug.Log("마지막 씬입니다!");
         }
+        */
+    }
+
+
+
+    public void PlayTransition()
+    {
+        TransitionManager.Instance.PlayTransition(totalTransitionTime);
+    }
+
+    public void PlayStartOfTransition()
+    {
+        TransitionManager.Instance.PlayStartHalfTransition(totalTransitionTime / 2);
+    }
+
+    public void PlayEndOfTransition()
+    {
+        TransitionManager.Instance.PlayEndHalfTransition(totalTransitionTime / 2);
     }
 }
