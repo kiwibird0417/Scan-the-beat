@@ -1454,7 +1454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &182271504
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12431,7 +12431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &805840766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14811,7 +14811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &949908748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17550,7 +17550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1070727761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20139,7 +20139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1255362611
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24379,7 +24379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1625826761
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30079,7 +30079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2131292384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33508,6 +33508,10 @@ PrefabInstance:
     - target: {fileID: 816336441941093563, guid: e100c81bc61b8da4eb97d78164e196fe, type: 3}
       propertyPath: m_Name
       value: Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 816336441941093563, guid: e100c81bc61b8da4eb97d78164e196fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3517299000366147006, guid: e100c81bc61b8da4eb97d78164e196fe, type: 3}
       propertyPath: m_LocalPosition.x

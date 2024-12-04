@@ -97,7 +97,7 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("오른쪽 진입 실패");
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -111,7 +111,7 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("왼쪽 진입 실패");
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -125,7 +125,7 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("아래쪽 진입 실패");
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -139,7 +139,7 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("위쪽 진입 실패");
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -147,7 +147,7 @@ public class RayDirectionChecker : MonoBehaviour
         else
         {
             Debug.Log("누르지를 않아서 실패다.");
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
     #endregion
@@ -160,7 +160,7 @@ public class RayDirectionChecker : MonoBehaviour
         if (holdL.IsHeld || holdR.IsHeld)
         {
             Debug.Log("버튼에서 손 안 떼서 실패!");
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
         else
         {
@@ -177,7 +177,7 @@ public class RayDirectionChecker : MonoBehaviour
                     else
                     {
                         Debug.Log("실패!");
-                        gameObject.SetActive(false);
+                        //gameObject.SetActive(false);
                     }
                 }
                 else if (directionType == 1)    //오른쪽에서 진입, 왼쪽으로 나감
@@ -190,7 +190,7 @@ public class RayDirectionChecker : MonoBehaviour
                     else
                     {
                         Debug.Log("실패!");
-                        gameObject.SetActive(false);
+                        //gameObject.SetActive(false);
                     }
                 }
                 else if (directionType == 2)    //위에서 진입, 아래로 나감
@@ -203,7 +203,7 @@ public class RayDirectionChecker : MonoBehaviour
                     else
                     {
                         Debug.Log("실패!");
-                        gameObject.SetActive(false);
+                        //gameObject.SetActive(false);
                     }
                 }
                 else if (directionType == 3)    //아래에서 진입, 위로 나감
@@ -216,14 +216,14 @@ public class RayDirectionChecker : MonoBehaviour
                     else
                     {
                         Debug.Log("실패!");
-                        gameObject.SetActive(false);
+                        //gameObject.SetActive(false);
                     }
                 }
             }
             else
             {
                 Debug.Log("실패!");
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
         }
 
