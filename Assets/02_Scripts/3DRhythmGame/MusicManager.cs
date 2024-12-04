@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
@@ -14,10 +13,21 @@ public class MusicManager : MonoBehaviour
     // ComboManager를 참조
     [SerializeField] private ComboManager comboManager;
 
+    // MusicData ScriptableObject 참조
+    [SerializeField] private MusicData musicData;
+
     public InputActionReference buttonA;
 
     void Start()
     {
+        // 음악, Skybox 및 Fog 색상 설정
+        if (musicData != null)
+        {
+            musicSource.clip = musicData.audioClip;
+            RenderSettings.skybox = musicData.skyboxMaterial;
+            RenderSettings.fogColor = musicData.fogColor; // Fog 색상 설정
+        }
+
         // 각 입력에 대한 리스너 등록
         buttonA.action.Enable();
         buttonA.action.performed += context => PlayMusic();
@@ -101,5 +111,11 @@ public class MusicManager : MonoBehaviour
 
         // 결과 텍스트 활성화
         resultText.gameObject.SetActive(true);
+    }
+
+    // BPM을 외부에서 사용할 수 있게 공개하는 프로퍼티
+    public int GetBPM()
+    {
+        return musicData != null ? musicData.bpm : 120; // 기본값 120
     }
 }

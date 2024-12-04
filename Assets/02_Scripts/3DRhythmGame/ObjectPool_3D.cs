@@ -5,47 +5,72 @@ public class ObjectPool_3D : MonoBehaviour
 {
     public static ObjectPool_3D instance;
 
-    [SerializeField] private GameObject notePrefab;  // 노트 프리팹
-    private Queue<GameObject> notePool = new Queue<GameObject>();
-    private int poolSize = 10;  // 풀의 크기 제한 (예시로 10개로 설정)
+    [SerializeField] private GameObject leftNotePrefab;  // 왼쪽 노트 프리팹
+    [SerializeField] private GameObject rightNotePrefab; // 오른쪽 노트 프리팹
+    private Queue<GameObject> leftNotePool = new Queue<GameObject>();
+    private Queue<GameObject> rightNotePool = new Queue<GameObject>();
+
+    private int poolSize = 10; // 각 풀의 크기
 
     private void Awake()
     {
         instance = this;
-        InitializePool();
+        InitializePool(leftNotePrefab, leftNotePool);
+        InitializePool(rightNotePrefab, rightNotePool);
     }
 
-    // 풀 초기화: 미리 오브젝트를 생성하고 비활성화하여 풀에 저장
-    private void InitializePool()
+    // 특정 유형의 풀 초기화
+    private void InitializePool(GameObject prefab, Queue<GameObject> pool)
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject note = Instantiate(notePrefab);
-            note.SetActive(false);  // 풀에 저장될 오브젝트는 비활성화 상태
-            notePool.Enqueue(note);
+            GameObject note = Instantiate(prefab);
+            note.SetActive(false);
+            pool.Enqueue(note);
         }
     }
 
-    // 오브젝트를 풀에서 가져옴
-    public GameObject GetNote()
+    // 노트를 풀에서 가져옴
+    public GameObject GetNote(string noteType)
     {
-        if (notePool.Count > 0)
+        Queue<GameObject> selectedPool = GetPoolByType(noteType);
+
+        if (selectedPool != null && selectedPool.Count > 0)
         {
-            GameObject note = notePool.Dequeue();  // 풀에서 오브젝트 꺼내기
-            note.SetActive(true);  // 오브젝트 활성화
+            GameObject note = selectedPool.Dequeue();
+            note.SetActive(true);
             return note;
         }
         else
         {
-            Debug.LogWarning("Object pool is empty, returning null.");
-            return null;  // 풀에 오브젝트가 없을 때는 null 반환
+            Debug.LogWarning($"{noteType} pool is empty.");
+            return null;
         }
     }
 
-    // 오브젝트를 풀에 반환
-    public void ReturnNote(GameObject note)
+    // 노트를 반환
+    public void ReturnNote(GameObject note, string noteType)
     {
-        note.SetActive(false);  // 오브젝트 비활성화
-        notePool.Enqueue(note);  // 풀에 반환
+        note.SetActive(false);
+
+        Queue<GameObject> selectedPool = GetPoolByType(noteType);
+        if (selectedPool != null)
+        {
+            selectedPool.Enqueue(note);
+        }
+        else
+        {
+            Debug.LogError($"Invalid note type: {noteType}");
+        }
+    }
+
+
+    // 노트 유형에 따라 풀을 선택
+    private Queue<GameObject> GetPoolByType(string noteType)
+    {
+        if (noteType == "Left") return leftNotePool;
+        if (noteType == "Right") return rightNotePool;
+        Debug.LogError($"Invalid note type: {noteType}");
+        return null;
     }
 }

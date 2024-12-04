@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
-
+/*
 public class Note_Trigger : MonoBehaviour
 {
     // InputActionReference for triggers
@@ -99,3 +99,4 @@ public class Note_Trigger : MonoBehaviour
         isHovered = false; // Hover 상태 종료
     }
 }
+*/
