@@ -34,6 +34,7 @@ public class LeftNote_3D : MonoBehaviour
     {
         if (other.CompareTag("MissBox"))
         {
+            Debug.Log("Missbox와 충돌");
             if (comboManager != null)
             {
                 comboManager.ResetCombo(); // 콤보 초기화

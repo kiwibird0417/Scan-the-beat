@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 2ab3e6c26e6970d4c9a974f9e80e047b, type: 3}
   bpm: 90
-  skyboxMaterial: {fileID: 2100000, guid: dc1ae9635546e2940a0b96ffb76e0fa6, type: 2}
-  fogColor: {r: 1, g: 0.4300755, b: 0, a: 1}
+  skyboxMaterial: {fileID: 2100000, guid: 20fca97cf5b8e92459331b3cd74c4be1, type: 2}
+  fogColor: {r: 0.60784316, g: 0.41960788, b: 0.7843138, a: 1}

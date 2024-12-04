@@ -1858,7 +1858,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114223575}
         m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1918,6 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c447dfef2059346bfe913fb4b38ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTransitionTime: 0
 --- !u!1 &122623651
 GameObject:
   m_ObjectHideFlags: 0
@@ -13748,7 +13749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1761439801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14689,7 +14690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1890658253
 MonoBehaviour:
   m_ObjectHideFlags: 0

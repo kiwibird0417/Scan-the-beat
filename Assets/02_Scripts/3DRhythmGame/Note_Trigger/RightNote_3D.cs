@@ -36,11 +36,15 @@ public class RightNote_3D : MonoBehaviour
         {
             if (comboManager != null)
             {
+                Debug.Log("콤보 초기화");
                 comboManager.ResetCombo(); // 콤보 초기화
             }
 
 
+            Debug.Log("노트 비활성화");
             HideNote(); // 노트 숨기기 (비활성화)
+
+            Debug.Log("오브젝트 풀링 반환");
             ObjectPool_3D.instance.ReturnNote(gameObject, NoteType); // 풀에 반환
         }
     }

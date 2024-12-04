@@ -1,6 +1,8 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using MaskTransitions;
 
 public class MusicManager : MonoBehaviour
 {
@@ -16,38 +18,22 @@ public class MusicManager : MonoBehaviour
     // MusicData ScriptableObject 참조
     [SerializeField] private MusicData musicData;
 
-    public InputActionReference buttonA;
+    [SerializeField] private float transitionTime = 1f; // 트랜지션 지속 시간
 
     void Start()
     {
-        // 음악, Skybox 및 Fog 색상 설정
         if (musicData != null)
         {
             musicSource.clip = musicData.audioClip;
             RenderSettings.skybox = musicData.skyboxMaterial;
-            RenderSettings.fogColor = musicData.fogColor; // Fog 색상 설정
+            RenderSettings.fogColor = musicData.fogColor;
         }
 
-        // 각 입력에 대한 리스너 등록
-        buttonA.action.Enable();
-        buttonA.action.performed += context => PlayMusic();
-    }
-
-    void OnDestroy()
-    {
-        // 리스너 해제
-        buttonA.action.performed -= context => PlayMusic();
+        StartCoroutine(PlayMusicAfterDelay(3f));
     }
 
     void Update()
     {
-        // 스페이스바가 눌렸을 때 음악 시작
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayMusic();
-        }
-
-        // 노래가 끝났는지 확인
         if (isPlaying && !musicSource.isPlaying && musicSource.time >= musicSource.clip.length)
         {
             OnMusicEnd();
@@ -63,33 +49,18 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void StopMusic()
-    {
-        if (isPlaying)
-        {
-            musicSource.Stop();
-            isPlaying = false;
-        }
-    }
-
-    public bool IsMusicPlaying()
-    {
-        return isPlaying && musicSource.isPlaying;
-    }
-
     private void OnMusicEnd()
     {
-        // 음악 종료 처리
         isPlaying = false;
-        ShowResult(); // 결과 표시
+        ShowResult();
+
+        // 1초 후에 트랜지션 시작 및 씬 전환
+        StartCoroutine(TransitionToMenuAfterDelay(1f));
     }
 
     private void ShowResult()
     {
-        // 콤보 수 가져오기
         int currentCombo = comboManager.GetCombo();
-
-        // 퍼포먼스 평가
         float comboPercentage = (float)currentCombo / comboManager.maxCombo * 100;
 
         if (comboPercentage == 100)
@@ -109,13 +80,25 @@ public class MusicManager : MonoBehaviour
             resultText.text = "You can do better next time!";
         }
 
-        // 결과 텍스트 활성화
         resultText.gameObject.SetActive(true);
     }
 
-    // BPM을 외부에서 사용할 수 있게 공개하는 프로퍼티
-    public int GetBPM()
+    private IEnumerator PlayMusicAfterDelay(float delay)
     {
-        return musicData != null ? musicData.bpm : 120; // 기본값 120
+        yield return new WaitForSeconds(delay);
+        PlayMusic();
     }
+
+    private IEnumerator TransitionToMenuAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        TransitionManager.Instance.LoadLevel("Menu");
+    }
+
+    public bool IsMusicPlaying()
+    {
+        return musicSource != null && musicSource.isPlaying;
+    }
+
 }

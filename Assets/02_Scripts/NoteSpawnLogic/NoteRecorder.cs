@@ -1,5 +1,7 @@
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;  // 에디터 API를 사용할 수 있도록 추가
+#endif
 
 public class NoteRecorder : MonoBehaviour
 {
@@ -23,7 +25,14 @@ public class NoteRecorder : MonoBehaviour
 
     void RecordNote(string noteType)
     {
-        // 노트를 기록
+        if (rhythmMap == null)
+        {
+            // 새로운 RhythmMap이 없다면, 새로 생성하는 방법을 고려할 수 있습니다.
+            Debug.LogWarning("RhythmMap is missing. Please assign it in the Inspector.");
+            return;
+        }
+
+        // 기존 리듬 맵에 노트를 추가
         Rhythm_Note newNote = new Rhythm_Note
         {
             time = timeSinceStart,  // 현재 시간 기록
@@ -40,9 +49,11 @@ public class NoteRecorder : MonoBehaviour
     [ContextMenu("Save Rhythm Map")]
     void SaveRhythmMap()
     {
-        // ScriptableObject를 저장하는 코드
+#if UNITY_EDITOR
+        // ScriptableObject를 저장하는 코드 (에디터에서만 작동)
         EditorUtility.SetDirty(rhythmMap);
         AssetDatabase.SaveAssets();
         Debug.Log("Rhythm Map saved.");
+#endif
     }
 }

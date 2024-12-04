@@ -15,7 +15,9 @@ public class RayDirectionChecker : MonoBehaviour
     private Vector3 enterLocalPosition;
     private Vector3 exitLocalPosition;
 
-    private bool isEnterTrue;
+    public bool isEnterTrue;
+
+    [SerializeField] private GameObject hitEffectPrefab;
 
     //--------------------------------------------------
     public InputActionReference triggerL;
@@ -23,6 +25,8 @@ public class RayDirectionChecker : MonoBehaviour
 
     private Hold holdL;
     private Hold holdR;
+
+    private ComboManager comboManager;
 
     //--------------------------------------------------
     void Start()
@@ -34,33 +38,10 @@ public class RayDirectionChecker : MonoBehaviour
         // Hold 클래스 활성화
         holdL.Enable();
         holdR.Enable();
+
+        // ComboManager 참조 가져오기
+        comboManager = FindObjectOfType<ComboManager>();
     }
-    //===========================================================
-    /*
-    void Update()
-    {
-        // 트리거 L 버튼이 눌려져 있는 상태 확인
-        if (holdL.IsHeld)
-        {
-            Debug.Log("왼쪽 트리거 버튼이 눌려져 있다");
-        }
-
-        // 트리거 R 버튼이 눌려져 있는 상태 확인
-        if (holdR.IsHeld)
-        {
-            Debug.Log("오른쪽 트리거 버튼이 눌려져 있다");
-        }
-    }
-    */
-
-    private void OnDestroy()
-    {
-        // 이벤트 구독 해제
-        holdL.Disable();
-        holdR.Disable();
-    }
-
-
     //===================================================================
     #region 들어오는 방향, 나가는 방향
     private void OnEnable()
@@ -97,7 +78,6 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("오른쪽 진입 실패");
-                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -111,7 +91,6 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("왼쪽 진입 실패");
-                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -125,7 +104,6 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("아래쪽 진입 실패");
-                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -139,7 +117,6 @@ public class RayDirectionChecker : MonoBehaviour
                 else
                 {
                     Debug.Log("위쪽 진입 실패");
-                    //gameObject.SetActive(false);
                     isEnterTrue = false;
                 }
             }
@@ -147,7 +124,6 @@ public class RayDirectionChecker : MonoBehaviour
         else
         {
             Debug.Log("누르지를 않아서 실패다.");
-            //gameObject.SetActive(false);
         }
     }
     #endregion
@@ -160,7 +136,6 @@ public class RayDirectionChecker : MonoBehaviour
         if (holdL.IsHeld || holdR.IsHeld)
         {
             Debug.Log("버튼에서 손 안 떼서 실패!");
-            //gameObject.SetActive(false);
         }
         else
         {
@@ -172,12 +147,12 @@ public class RayDirectionChecker : MonoBehaviour
                     if (exitLocalPosition.x < 0)
                     {
                         Debug.Log("오른쪽 이탈 성공!");
-                        Destroy(gameObject);
+                        Note_VisualEffect();
                     }
                     else
                     {
                         Debug.Log("실패!");
-                        //gameObject.SetActive(false);
+
                     }
                 }
                 else if (directionType == 1)    //오른쪽에서 진입, 왼쪽으로 나감
@@ -185,12 +160,12 @@ public class RayDirectionChecker : MonoBehaviour
                     if (exitLocalPosition.x > 0)
                     {
                         Debug.Log("왼쪽 이탈 성공!");
-                        Destroy(gameObject);
+                        Note_VisualEffect();
                     }
                     else
                     {
                         Debug.Log("실패!");
-                        //gameObject.SetActive(false);
+
                     }
                 }
                 else if (directionType == 2)    //위에서 진입, 아래로 나감
@@ -198,12 +173,11 @@ public class RayDirectionChecker : MonoBehaviour
                     if (exitLocalPosition.y < 0)
                     {
                         Debug.Log("위쪽 이탈 성공!");
-                        Destroy(gameObject);
+                        Note_VisualEffect();
                     }
                     else
                     {
                         Debug.Log("실패!");
-                        //gameObject.SetActive(false);
                     }
                 }
                 else if (directionType == 3)    //아래에서 진입, 위로 나감
@@ -211,22 +185,51 @@ public class RayDirectionChecker : MonoBehaviour
                     if (exitLocalPosition.y < 0)
                     {
                         Debug.Log("아래쪽 이탈 성공!");
-                        Destroy(gameObject);
+                        Note_VisualEffect();
                     }
                     else
                     {
                         Debug.Log("실패!");
-                        //gameObject.SetActive(false);
                     }
                 }
             }
             else
             {
                 Debug.Log("실패!");
-                //gameObject.SetActive(false);
+
             }
         }
 
+    }
+    #endregion
+
+    #region visual effect
+    void Note_VisualEffect()
+    {
+        if (hitEffectPrefab != null)
+        {
+            GameObject hitEffect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(hitEffect, 1f); // 1초 후에 자동으로 삭제
+        }
+
+        // 콤보 성공 처리
+        if (comboManager != null)
+        {
+            comboManager.AddCombo(); // 콤보 증가
+        }
+
+        // 자신만 비활성화하고 풀로 반환
+        RightNote_3D RNoteComponent = GetComponent<RightNote_3D>(); // Note 컴포넌트 가져오기
+        LeftNote_3D LNoteComponent = GetComponent<LeftNote_3D>(); // Note 컴포넌트 가져오기
+
+        if (RNoteComponent != null)
+        {
+            ObjectPool_3D.instance.ReturnNote(gameObject, RNoteComponent.NoteType); // 노트 유형 전달
+        }
+        if (LNoteComponent != null)
+        {
+            ObjectPool_3D.instance.ReturnNote(gameObject, LNoteComponent.NoteType); // 노트 유형 전달
+        }
     }
     #endregion
 }

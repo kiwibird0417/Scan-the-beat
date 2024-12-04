@@ -47,13 +47,13 @@ public class MusicManagerforBGM : MonoBehaviour
         {
             currentSceneName = newSceneName;
 
-            if (newSceneName == "Main")
+            if (newSceneName == "MainGame")
             {
                 // 메인 게임 씬에서는 음악 정지
                 savedMusicTime = audioSource.time; // 현재 재생 시간 저장
                 audioSource.Pause();
             }
-            else if (newSceneName == "MainTitle" || newSceneName == "MainScene")
+            else if (newSceneName == "MainTitle" || newSceneName == "Menu")
             {
                 // 로비/메인씬 음악 재개
                 PlayMusic(lobbyAndMainMusic, savedMusicTime);

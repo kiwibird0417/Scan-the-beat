@@ -15,24 +15,13 @@ public class SceneTransition : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // 현재 씬의 인덱스를 1 증가시켜서 다음 씬으로 이동
-        LoadNextScene(currentSceneIndex + 1);
+        //LoadNextScene(currentSceneIndex + 1);
     }
 
     // 씬 전환 함수
-    public void LoadNextScene(int nextSceneIndex)
+    public void LoadNextScene()
     {
-        TransitionManager.Instance.LoadLevel("Main");
-        /*
-        // 다음 씬을 로드
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("마지막 씬입니다!");
-        }
-        */
+        TransitionManager.Instance.LoadLevel("MainGame");
     }
 
 

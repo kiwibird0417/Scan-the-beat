@@ -12,17 +12,8 @@ EditorBuildSettings:
     path: Assets/01_Scenes/Menu.unity
     guid: a0c8481d33515b74bb1889de468f2d12
   - enabled: 1
-    path: Assets/01_Scenes/Main.unity
-    guid: 93e00821d204abe42b82765ab2b8bee8
-  - enabled: 1
-    path: Assets/01_Scenes/Title.unity
-    guid: 3cf0e4d7658c1e24e8064bfe2eaf5ed7
-  - enabled: 1
-    path: Assets/10_ETC/Nearmint Studios/Mask Transitions/Demo/DemoScene_1.unity
-    guid: 87e765e27a0aeaf44aade69b8d897d3f
-  - enabled: 1
-    path: Assets/10_ETC/Nearmint Studios/Mask Transitions/Demo/DemoScene_2.unity
-    guid: ab6ff6575ce1b374dba4e0885c1fe774
+    path: Assets/01_Scenes/MainGame.unity
+    guid: 30c2eec1a87aaa841806b2a64a0c181a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: aa1809e72b42e79479f4845250a9756b, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
