@@ -3,29 +3,14 @@ using UnityEngine;
 public class Obstaclesssssssss : MonoBehaviour
 {
     public float moveSpeed = 5f; // 이동 속도
-    public float destroyDistance = 20f; // 화면을 벗어난 방해물 삭제 기준 거리
+    public float lifeTime = 10f; // 방해물이 살아있는 시간 (초)
 
-    private Transform player; // 플레이어 위치 참조
+    private float spawnTime; // 생성된 시점의 시간 기록
 
     void Start()
     {
-        // 플레이어 오브젝트 참조
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
-        {
-            player = playerObject.transform;
-        }
-        else
-        {
-            Debug.LogWarning("Player 태그를 가진 오브젝트를 찾을 수 없습니다!");
-        }
-
-    }
-
-    void Update()
-    {
-        // 플레이어가 없으면 이동 및 삭제 로직 실행 중단
-        if (player == null) return;
+        // 생성된 시점의 시간을 기록
+        spawnTime = Time.time;
 
         // 중력 효과를 무시
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -33,12 +18,15 @@ public class Obstaclesssssssss : MonoBehaviour
         {
             rb.useGravity = false;
         }
+    }
 
+    void Update()
+    {
         // 방해물 이동
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
 
-        // 방해물이 플레이어와 멀리 떨어졌을 경우 삭제
-        if (Vector3.Distance(transform.position, player.position) > destroyDistance)
+        // 생성된 지 지정된 시간이 지났으면 삭제
+        if (Time.time - spawnTime > lifeTime)
         {
             Destroy(gameObject);
         }
