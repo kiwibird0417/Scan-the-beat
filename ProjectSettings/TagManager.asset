@@ -8,6 +8,10 @@ TagManager:
   - Note
   - Activator
   - MissBox
+  - Missile
+  - Target
+  - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -39,7 +43,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - XR Simulation
   - 
   m_SortingLayers:
   - name: Default

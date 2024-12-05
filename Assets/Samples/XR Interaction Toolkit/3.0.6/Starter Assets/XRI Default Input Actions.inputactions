@@ -975,51 +975,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "XButton",
-                    "type": "Button",
-                    "id": "2658f21c-797d-4a5e-a04e-0e36349294ac",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "YButton",
-                    "type": "Button",
-                    "id": "0995cb25-9af2-41a6-96e9-9e1af2a62fa6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeftTrigger",
-                    "type": "Button",
-                    "id": "7caf038b-f8a9-4ba1-bfbd-df7b921052e4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeftJoyStickPressed",
-                    "type": "Button",
-                    "id": "1c9bb548-2dcc-4597-911a-72eff253804d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeftGrip",
-                    "type": "Button",
-                    "id": "f08559da-56dc-453e-ac2d-abc410490647",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1308,61 +1263,6 @@
                     "action": "Translate Manipulation",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9cb15861-f8e4-4321-bca2-45cf17db4d8f",
-                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "XButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "326882c0-a95e-4954-bf5c-4094738587e9",
-                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "YButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a8c4a08f-6873-4ac6-a0bb-1934761d3ac5",
-                    "path": "<XRController>{LeftHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftTrigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0c183ebc-dffa-4fc4-b19f-66818bffa13a",
-                    "path": "<XRController>{LeftHand}/joystickClicked",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftJoyStickPressed",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "edf2d409-8c1e-4a16-a353-ba60dd76bd40",
-                    "path": "<XRController>{LeftHand}/{GripButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LeftGrip",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1623,24 +1523,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "AButton",
-                    "type": "Button",
-                    "id": "1f7fab8a-e0ef-479a-bf0e-d1615d39bef4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "BButton",
-                    "type": "Button",
-                    "id": "9f73b7f1-e5a8-42e6-9103-8fa91df378c3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2050,28 +1932,6 @@
                     "action": "Thumbstick",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c0110e25-bb4a-499f-945a-76468512042a",
-                    "path": "<XRController>{RightHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "AButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "46746593-5003-4fb4-a00c-f0de578bf754",
-                    "path": "<XRController>{RightHand}/{SecondaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -2186,24 +2046,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "RightTrigger",
-                    "type": "Button",
-                    "id": "9b5e3b8a-d037-4529-8da5-3741a4e6be85",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "RightGrip",
-                    "type": "Button",
-                    "id": "61116fad-2ae7-4ebd-b31b-fb4be0b109f2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2490,28 +2332,6 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "",
                     "action": "Translate Manipulation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79fb2c64-6c7c-4e1a-8940-4aeae977b88b",
-                    "path": "<XRController>{RightHand}/{TriggerButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightTrigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e49641e6-996d-43be-8c0a-e31e64a8015e",
-                    "path": "<XRController>{RightHand}/gripButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightGrip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -3491,34 +3311,6 @@
                     "action": "Spawn Object",
                     "isComposite": false,
                     "isPartOfComposite": true
-                }
-            ]
-        },
-        {
-            "name": "PC",
-            "id": "0c8cbaa0-260f-4f2d-859b-b75e36382c48",
-            "actions": [
-                {
-                    "name": "SpaceBar_Temp",
-                    "type": "Button",
-                    "id": "13b4c5a8-6ca6-40da-8d58-3e14af98bc46",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "5af09528-5abd-4339-8af4-2003d77bb8b7",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpaceBar_Temp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
