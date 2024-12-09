@@ -21,7 +21,7 @@ public class SceneTransition : MonoBehaviour
     // 씬 전환 함수
     public void LoadNextScene()
     {
-        TransitionManager.Instance.LoadLevel("MainGame");
+        TransitionManager.Instance.LoadLevel("BasicGame");
     }
 
 
